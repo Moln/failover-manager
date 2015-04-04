@@ -1,23 +1,8 @@
-# Resource Manager
-Resource failover manager
+<?php
 
-## Installation using Composer
-
-```
-{
-    "require": {
-        "moln/resource-manager": "1.0"
-    }
-}
-```
-
-## Example - 使用举例
-
-
-```php
 include '../vendor/autoload.php';
 
-$resources = new \Moln\FailoverManager\ResourceManager(
+$resources = new \Moln\ResourceManager\ResourceManager(
     [
         'resources' => [
             'master' => [
@@ -34,7 +19,7 @@ $resources = new \Moln\FailoverManager\ResourceManager(
             ],
         ],
         'listeners' => [
-            new \Moln\FailoverManager\FileConfigFailoverListener(['file' => 'failover.json']),
+            new \Moln\ResourceManager\FileConfigFailoverListener(['file' => 'failover.json']),
         ]
     ]
 );
@@ -45,4 +30,3 @@ $redis = $resource->getResource();
 
 print_r($redis->info());
 print_r($resource->getServer());
-```

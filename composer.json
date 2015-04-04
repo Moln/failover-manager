@@ -1,0 +1,24 @@
+{
+  "name": "moln/resource-manager",
+  "description": "Any resources failover, Redis, tcp",
+  "keyword": ["failover", "resource", "manager", "redis"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Moln",
+      "email": "moln.xie@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0",
+    "zendframework/zend-eventmanager": "2.*"
+  },
+  "suggest": {
+    "ext-redis": "ext/redis"
+  },
+  "autoload": {
+    "psr-4": {
+      "Moln\\ResourceManager\\": "src/ResourceManager"
+    }
+  }
+}

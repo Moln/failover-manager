@@ -6,7 +6,7 @@ Resource failover manager
 ```
 {
     "require": {
-        "moln/resource-manager": "1.0"
+        "moln/failover-manager": "1.0"
     }
 }
 ```

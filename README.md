@@ -1,4 +1,4 @@
-# Resource Manager
+# Failover manager
 Resource failover manager
 
 ## Installation using Composer

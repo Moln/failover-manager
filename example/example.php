@@ -2,7 +2,7 @@
 
 include '../vendor/autoload.php';
 
-$resources = new \Moln\ResourceManager\ResourceManager(
+$resources = new \Moln\FailoverManager\ResourceManager(
     [
         'resources' => [
             'master' => [
@@ -19,7 +19,7 @@ $resources = new \Moln\ResourceManager\ResourceManager(
             ],
         ],
         'listeners' => [
-            new \Moln\ResourceManager\FileConfigFailoverListener(['file' => 'failover.json']),
+            new \Moln\FailoverManager\FileConfigFailoverListener(['file' => 'failover.json']),
         ]
     ]
 );

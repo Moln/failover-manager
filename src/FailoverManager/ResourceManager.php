@@ -1,10 +1,9 @@
 <?php
 
-namespace Moln\ResourceManager;
+namespace Moln\FailoverManager;
 
-use Moln\ResourceManager\Adapter\Exception\ConnectionException;
-use Moln\ResourceManager\Adapter\ResourceInterface;
-use Traversable;
+use Moln\FailoverManager\Adapter\Exception\ConnectionException;
+use Moln\FailoverManager\Adapter\ResourceInterface;
 use Zend\EventManager\EventManagerAwareInterface;
 use Zend\EventManager\EventManagerAwareTrait;
 
@@ -91,7 +90,7 @@ class ResourceManager implements EventManagerAwareInterface
      * Set a resource
      *
      * @param string $id
-     * @param array|Traversable|Adapter\ResourceInterface $resource
+     * @param array|Adapter\ResourceInterface $resource
      * @return self Fluent interface
      */
     public function setResource($id, $resource)

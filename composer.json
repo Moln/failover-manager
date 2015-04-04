@@ -1,5 +1,5 @@
 {
-  "name": "moln/resource-manager",
+  "name": "moln/failover-manager",
   "description": "Any resources failover, Redis, tcp",
   "keyword": ["failover", "resource", "manager", "redis"],
   "license": "MIT",
@@ -18,7 +18,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Moln\\ResourceManager\\": "src/ResourceManager"
+      "Moln\\FailoverManager\\": "src/FailoverManager"
     }
   }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Moln\ResourceManager\Adapter;
+namespace Moln\FailoverManager\Adapter;
 use Zend\Stdlib\ArrayUtils;
 
 /**

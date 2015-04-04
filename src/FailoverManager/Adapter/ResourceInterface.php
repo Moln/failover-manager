@@ -1,5 +1,5 @@
 <?php
-namespace Moln\ResourceManager\Adapter;
+namespace Moln\FailoverManager\Adapter;
 
 
 interface ResourceInterface {

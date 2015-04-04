@@ -1,5 +1,5 @@
 <?php
-namespace Moln\ResourceManager;
+namespace Moln\FailoverManager;
 
 use Zend\EventManager\AbstractListenerAggregate;
 use Zend\EventManager\EventManagerInterface;

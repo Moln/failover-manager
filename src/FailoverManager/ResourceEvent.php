@@ -1,6 +1,6 @@
 <?php
 
-namespace Moln\ResourceManager;
+namespace Moln\FailoverManager;
 
 use Zend\EventManager\Event;
 

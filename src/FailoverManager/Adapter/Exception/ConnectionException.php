@@ -1,5 +1,5 @@
 <?php
-namespace Moln\ResourceManager\Adapter\Exception;
+namespace Moln\FailoverManager\Adapter\Exception;
 
 /**
  * Class ConnectionException

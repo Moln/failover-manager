@@ -34,7 +34,7 @@ $resources = new \Moln\FailoverManager\ResourceManager(
             ],
         ],
         'listeners' => [
-            new \Moln\FailoverManager\FileConfigFailoverListener(['file' => 'failover.json']),
+            new \Moln\FailoverManager\Listener\FileConfigFailoverListener(['file' => 'failover.json']),
         ]
     ]
 );

@@ -66,6 +66,10 @@ class RedisAdapter extends AbstractResourceAdapter
             $redis->auth($server['password']);
         }
 
+        if (!empty($server['auth'])) {
+            $redis->auth($server['auth']);
+        }
+
         if ($server['database']) {
             $redis->select($server['database']);
         }

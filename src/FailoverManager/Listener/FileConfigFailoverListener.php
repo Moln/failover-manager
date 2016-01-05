@@ -33,9 +33,6 @@ class FileConfigFailoverListener extends AbstractListenerAggregate
      */
     public function setFile($file)
     {
-        if (is_readable($file)) {
-
-        }
         $this->file = $file;
         return $this;
     }

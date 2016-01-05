@@ -13,6 +13,9 @@
     "php": ">=5.4.0",
     "zendframework/zend-eventmanager": "2.*"
   },
+  "require-dev": {
+    "fabpot/php-cs-fixer": "1.7.*"
+  },
   "suggest": {
     "ext-redis": "ext/redis"
   },

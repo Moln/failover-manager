@@ -40,7 +40,7 @@ class ResourceManager implements EventManagerAwareInterface
      *
      * @var Adapter\AbstractResourceAdapter[]
      */
-    protected $resources = array();
+    protected $resources = [];
 
     /**
      * Check if a resource exists
@@ -122,7 +122,7 @@ class ResourceManager implements EventManagerAwareInterface
     /**
      * Get resources
      *
-     * @return array
+     * @return Adapter\AbstractResourceAdapter[]
      */
     public function getResources()
     {
@@ -149,7 +149,7 @@ class ResourceManager implements EventManagerAwareInterface
      */
     protected function createResourceFromArray($config)
     {
-        $config = $config + array('type' => null, 'options' => []);
+        $config = $config + ['type' => null, 'options' => []];
 
         $className = __NAMESPACE__ . '\\Adapter\\' . ucfirst($config['type']) . 'Adapter';
 

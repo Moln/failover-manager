@@ -2,7 +2,6 @@
 
 namespace Moln\FailoverManager\Adapter;
 
-
 /**
  * Common socket
  *

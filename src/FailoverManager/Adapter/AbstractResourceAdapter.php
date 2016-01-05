@@ -1,7 +1,6 @@
 <?php
 
 namespace Moln\FailoverManager\Adapter;
-use Zend\Stdlib\ArrayUtils;
 
 /**
  * Class AbstractResourceAdapter
@@ -117,10 +116,10 @@ abstract class AbstractResourceAdapter implements ResourceInterface
      */
     protected function getDefaultServerConfig()
     {
-        return array(
+        return [
             'host'    => null,
             'port'    => null,
             'timeout' => 0,
-        );
+        ];
     }
 }

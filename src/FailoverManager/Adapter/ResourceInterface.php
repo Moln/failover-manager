@@ -1,8 +1,8 @@
 <?php
 namespace Moln\FailoverManager\Adapter;
 
-
-interface ResourceInterface {
+interface ResourceInterface
+{
 
     /**
      * Connect resource

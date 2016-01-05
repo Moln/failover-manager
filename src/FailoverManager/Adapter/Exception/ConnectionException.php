@@ -8,5 +8,4 @@ namespace Moln\FailoverManager\Adapter\Exception;
  */
 class ConnectionException extends \RuntimeException
 {
-
 }

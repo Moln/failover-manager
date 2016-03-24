@@ -17,6 +17,7 @@ class ResourceManager implements EventManagerAwareInterface
 {
     use EventManagerAwareTrait;
 
+    /** @var \Zend\EventManager\ListenerAggregateInterface[] */
     protected $listeners = [];
 
     public function __construct(array $options = [])
@@ -31,7 +32,7 @@ class ResourceManager implements EventManagerAwareInterface
     protected function attachDefaultListeners()
     {
         foreach ($this->listeners as $listener) {
-            $this->getEventManager()->attach($listener);
+            $listener->attach($this->getEventManager());
         }
     }
 
@@ -192,7 +193,8 @@ class ResourceManager implements EventManagerAwareInterface
         $event->setTarget($this);
         $event->setParam('keys', $keys);
 
-        $results = $this->getEventManager()->trigger(ResourceEvent::EVENT_CONNECTION_PRE, $event);
+        $event->setName(ResourceEvent::EVENT_CONNECTION_PRE);
+        $results = $this->getEventManager()->triggerEvent($event);
         if (is_array($results->last())) {
             $keys = array_diff($keys, $results->last());
         }
@@ -203,12 +205,15 @@ class ResourceManager implements EventManagerAwareInterface
 
             try {
                 $resource = $this->getResource($key)->connect();
-                $this->getEventManager()->trigger(ResourceEvent::EVENT_CONNECTION_SUCCESS, $event);
+
+                $event->setName(ResourceEvent::EVENT_CONNECTION_SUCCESS);
+                $this->getEventManager()->triggerEvent($event);
                 break;
             } catch (ConnectionException $e) {
                 $event->setParam('exception', $e);
 
-                $results = $this->getEventManager()->trigger(ResourceEvent::EVENT_CONNECTION_ERROR, $event);
+                $event->setName(ResourceEvent::EVENT_CONNECTION_ERROR);
+                $results = $this->getEventManager()->triggerEvent($event);
                 $last    = $results->last();
 
                 if ($last instanceof ResourceInterface) {

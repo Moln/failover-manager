@@ -11,7 +11,7 @@
   ],
   "require": {
     "php": ">=5.4.0",
-    "zendframework/zend-eventmanager": "2.*"
+    "zendframework/zend-eventmanager": "^2.6.0 | ^3.0.0"
   },
   "require-dev": {
     "fabpot/php-cs-fixer": "1.7.*"
@@ -21,7 +21,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Moln\\FailoverManager\\": "src/FailoverManager"
+      "Moln\\FailoverManager\\": "src/"
     }
   }
 }

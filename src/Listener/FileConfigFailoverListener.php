@@ -44,13 +44,14 @@ class FileConfigFailoverListener extends AbstractListenerAggregate
      * implementation will pass this to the aggregate.
      *
      * @param EventManagerInterface $events
+     * @param int $priority
      *
      * @return void
      */
-    public function attach(EventManagerInterface $events)
+    public function attach(EventManagerInterface $events, $priority = 1)
     {
-        $events->attach(ResourceEvent::EVENT_CONNECTION_PRE, [$this, 'onPrepare']);
-        $events->attach(ResourceEvent::EVENT_CONNECTION_ERROR, [$this, 'onError']);
+        $events->attach(ResourceEvent::EVENT_CONNECTION_PRE, [$this, 'onPrepare'], $priority);
+        $events->attach(ResourceEvent::EVENT_CONNECTION_ERROR, [$this, 'onError'], $priority);
     }
 
     public function onPrepare(ResourceEvent $event)

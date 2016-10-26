@@ -21,4 +21,16 @@ interface ResourceInterface
      * @return array
      */
     public function getServer();
+
+    /**
+     * Get resource name
+     * @return string
+     */
+    public function getName();
+
+    /**
+     * Set resource name
+     * @param string
+     */
+    public function setName($name);
 }

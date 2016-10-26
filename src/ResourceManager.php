@@ -104,6 +104,8 @@ class ResourceManager implements EventManagerAwareInterface
             throw new \RuntimeException('Error resource id: ' . $id);
         }
 
+        $resource->setName($id);
+
         $this->resources[$id] = $resource;
         return $this;
     }
@@ -145,10 +147,12 @@ class ResourceManager implements EventManagerAwareInterface
     }
 
     /**
-     * @param $config
+     * Create resource factory.
+     *
+     * @param array $config
      * @return ResourceInterface
      */
-    protected function createResourceFromArray($config)
+    private function createResourceFromArray($config)
     {
         $config = $config + ['type' => null, 'options' => []];
 
@@ -158,6 +162,7 @@ class ResourceManager implements EventManagerAwareInterface
             throw new \RuntimeException('Create resource error,type: ' . $config['type']);
         }
 
+        /** @var ResourceInterface $resource */
         return new $className($config['options']);
     }
 

@@ -1,12 +1,19 @@
-# Failover manager
-Resource failover manager
+Failover manager
+================
 
-## Installation using Composer
+[![Build Status](https://travis-ci.org/moln/failover-manager.png)](https://travis-ci.org/moln/failover-manager)
+[![Latest Stable Version](https://poser.pugx.org/moln/failover-manager/v/stable.png)](https://packagist.org/packages/moln/failover-manager)
+
+Resource failover manager
+资源故障转移管理器
+
+
+## 安装Installation using Composer
 
 ```
 {
     "require": {
-        "moln/failover-manager": "1.*"
+        "moln/failover-manager": "^1.0"
     }
 }
 ```

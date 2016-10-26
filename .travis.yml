@@ -1,0 +1,34 @@
+language: php
+
+matrix:
+  fast_finish: true
+  include:
+    - php: 5.6
+      env:
+        - EXECUTE_TEST_COVERALLS=true
+        - EXECUTE_CS_CHECK=true
+    - php: 7
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+    - vendor
+
+services:
+  - redis-server
+
+before_install:
+  - echo "extension = redis.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+  - if [[ $EXECUTE_TEST_COVERALLS != 'true' ]]; then phpenv config-rm xdebug.ini || return 0 ; fi
+  - if [[ $EXECUTE_TEST_COVERALLS == 'true' ]]; then composer require --dev --no-update satooshi/php-coveralls:^1.0 ; fi
+
+install:
+  - travis_retry composer install --no-interaction --ignore-platform-reqs
+
+script:
+  - if [[ $EXECUTE_TEST_COVERALLS == 'true' ]]; then ./vendor/bin/phpunit --coverage-clover clover.xml ; fi
+  - if [[ $EXECUTE_TEST_COVERALLS != 'true' ]]; then ./vendor/bin/phpunit ; fi
+  - if [[ $EXECUTE_CS_CHECK == 'true' ]]; then ./vendor/bin/php-cs-fixer fix -v --diff --dry-run ; fi
+
+after_script:
+  - if [[ $EXECUTE_TEST_COVERALLS == 'true' ]]; then mkdir -p build/logs && ./vendor/bin/coveralls -v --coverage_clover=clover.xml ; fi

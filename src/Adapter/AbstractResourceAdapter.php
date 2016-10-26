@@ -10,6 +10,8 @@ namespace Moln\FailoverManager\Adapter;
 abstract class AbstractResourceAdapter implements ResourceInterface
 {
 
+    protected $name;
+
     protected $server;
 
     protected $resource;
@@ -76,6 +78,26 @@ abstract class AbstractResourceAdapter implements ResourceInterface
     {
         $this->normalizeServer($server);
         $this->server = $server;
+        return $this;
+    }
+
+    /**
+     * Get resource name.
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set resource name.
+     * @param string $name
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
         return $this;
     }
 

@@ -10,11 +10,12 @@
     }
   ],
   "require": {
-    "php": ">=5.4.0",
+    "php": "^5.4.0 || ^7.0",
     "zendframework/zend-eventmanager": "^2.6.0 | ^3.0.0"
   },
   "require-dev": {
-    "fabpot/php-cs-fixer": "1.7.*"
+    "fabpot/php-cs-fixer": "1.7.*",
+    "phpunit/phpunit": "^5.6"
   },
   "suggest": {
     "ext-redis": "ext/redis"

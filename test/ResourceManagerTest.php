@@ -25,13 +25,13 @@ class ResourceManagerTest extends \PHPUnit_Framework_TestCase
                     'master' => [
                         'type' => 'redis',
                         'options' => [
-                            'server' => 'tcp://192.168.39.18:6379?password=111'
+                            'server' => 'tcp://127.0.0.1:6379?password=111'
                         ]
                     ],
                     'slave1' => [
                         'type' => 'redis',
                         'options' => [
-                            'server' => 'tcp://192.168.39.18:6379?password=222'
+                            'server' => 'tcp://127.0.0.1:6379?password=222'
                         ]
                     ],
                     'slave2' => $mockResource,
